@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: checker
+      POSTGRES_PASSWORD: strong_db_pass
+      POSTGRES_DB: checker_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  redis:
+    image: redis:7-alpine
+    networks:
+      - backend
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql://checker:strong_db_pass@db:5432/checker_db
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: cambiar-en-produccion-super-secreto
+    depends_on:
+      - db
+      - redis
+    networks:
+      - backend
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+    driver: bridge
