@@ -1,0 +1,2 @@
+# Autoaplay
+account-checker-platform/ ├── backend/ │   ├── api/ │   │   ├── __init__.py │   │   ├── auth.py │   │   ├── checks.py │   │   ├── payments.py │   │   └── users.py │   ├── core/ │   │   ├── __init__.py │   │   ├── config.py │   │   ├── database.py │   │   └── security.py │   ├── workers/ │ 
