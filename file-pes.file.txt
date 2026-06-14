@@ -1,0 +1,39 @@
+account-checker-platform/
+├── backend/
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   ├── checks.py
+│   │   ├── payments.py
+│   │   └── users.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   └── security.py
+│   ├── workers/
+│   │   ├── __init__.py
+│   │   ├── base_checker.py
+│   │   ├── netflix_checker.py
+│   │   ├── crunchyroll_checker.py
+│   │   └── spotify_checker.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   ├── account.py
+│   │   └── payment.py
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   └── main.py
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── views/
+│   │   ├── store/
+│   │   └── api.js
+│   ├── package.json
+│   └── Dockerfile
+├── docker-compose.yml
+├── nginx.conf
+└── README.md
